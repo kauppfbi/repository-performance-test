@@ -36,7 +36,7 @@ for ($i = 0; $i -lt $amount_of_projects; $i++) {
     git add . 
     git commit -m "add root files for project project-$i"
     git tag -a "project-$i-v$release_counter_of_project" -m "Release of project-$i-v$release_counter_of_project"
-    # git push 
+    git push --follow-tags
 
     $release_counter_of_project++
 
@@ -47,7 +47,7 @@ for ($i = 0; $i -lt $amount_of_projects; $i++) {
 
         git add . 
         git commit -m "add files for directory-$j in project-$i"
-        # git push
+        git push
 
         $commit_counter_of_project++
 
@@ -58,13 +58,13 @@ for ($i = 0; $i -lt $amount_of_projects; $i++) {
 
             git add . 
             git commit -m "add files for subdirectory-$k in directory-$j in project-$i"
-            # git push
+            git push
 
             $commit_counter_of_project++
         }
 
         git tag -a "project-$i-v$release_counter_of_project" -m "Release of project-$i-v$release_counter_of_project"
-        # git push  
+        git push --follow-tags
 
         $release_counter_of_project++
     }
