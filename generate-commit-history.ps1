@@ -1,4 +1,4 @@
-$amount_of_projects = 1
+$amount_of_projects = 2
 $amount_of_directories = 5
 $amount_of_subdirectories = 0
 $amount_of_files_per_directory = 5
@@ -27,7 +27,6 @@ function AddFiles {
 
 
 for ($i = 0; $i -lt $amount_of_projects; $i++) {
-    $commit_counter_of_project = 0
     $release_counter_of_project = 1
 
     Write-Output "Generate new Project project-$i"
@@ -36,11 +35,10 @@ for ($i = 0; $i -lt $amount_of_projects; $i++) {
 
     git add . 
     git commit -m "add root files for project project-$i"
-    git tag -l "project-$i-v$release_counter_of_project" -m "Release of project-$i-v$release_counter_of_project"
+    git tag -a "project-$i-v$release_counter_of_project" -m "Release of project-$i-v$release_counter_of_project"
     # git push 
 
     $release_counter_of_project++
-    $commit_counter_of_project++
 
     for ($j = 0; $j -lt $amount_of_directories; $j++) {
         Write-Output "Generate Directory directory-$j for project-$i"
@@ -64,5 +62,10 @@ for ($i = 0; $i -lt $amount_of_projects; $i++) {
 
             $commit_counter_of_project++
         }
+
+        git tag -a "project-$i-v$release_counter_of_project" -m "Release of project-$i-v$release_counter_of_project"
+        # git push  
+
+        $release_counter_of_project++
     }
 }
