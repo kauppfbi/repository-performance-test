@@ -1,6 +1,6 @@
-$amount_of_projects = 2
-$amount_of_directories = 5
-$amount_of_subdirectories = 0
+$amount_of_projects = 100
+$amount_of_directories = 20
+$amount_of_subdirectories = 10
 $amount_of_files_per_directory = 5
 
 function AddFiles {
