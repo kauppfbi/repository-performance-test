@@ -5,5 +5,5 @@ Measure-Command {
     git status
     git add .
     git commit -m "this is a performance test commit" --no-verify
-    git push
+    git push -u origin feature/performance-test
 }
