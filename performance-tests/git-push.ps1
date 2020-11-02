@@ -1,0 +1,3 @@
+Measure-Command {
+    git push
+}
